@@ -1,0 +1,70 @@
+
+public class Joe{  
+	
+	
+
+	
+public static void main(String args[])
+{  
+	//Joe has a 2D array containing the amounts of money he has made every day for 4 weeks.
+
+	//The array is shown below
+
+  //	       Monday0	Tuesday1 	Wednesday2  Thursday3  Friday4
+  //Week One 0  1000	    2500	500	      350	   2500
+  
+   //Week Two 1  250	    3500	4000	  750	   800
+
+   //Week Three 2450	    6000    2000	  1000     500
+
+   //Week Four 3 7000	    900	    500	      7500     9000
+
+	//Which an also be seen as {{1000,2500,500,350,2500},
+	//			{250,3500,4000,750,800},
+	//			{450, 6000, 2000,1000,500},
+	//			{7000,900,500,750,900}}
+
+	//Your task is to loop through each row in the 2D array, and print out the total amount earned for each week. 
+
+	//Your output should look like this:
+
+	//Week 1 : R "Amount for that week"
+	//Week 2 : R "Amount for that week"
+	//Week 3 : R "Amount for that week"
+	//Week 4 : R "Amount for that week"
+
+	//creating the 2d array
+	int [] [] arrayOfMoney = {{1000,2500,500,350,2500},
+						{250,3500,4000,750,800},
+						{450, 6000, 2000,1000,500},
+						{7000,900,500,750,900}};
+	int weeekOne;
+	int weeekTwo;
+	int weeekThree;
+	int weeekFour;
+	int innerLoopCheck = 0;
+	int outerLoopCheck = 0;
+	
+	for (innerLoopCheck < 5;)
+		{innerLoopCheck++;
+		 weeekOne = weeekOne + arrayOfMoney [innerLoopCheck][0];}
+	     System.out.println("Week 1" + weeekOne);
+	
+	 for (innerLoopCheck < 5;)
+	     {innerLoopCheck++;
+		  weeekTwo = weeekTwo + arrayOfMoney [innerLoopCheck][1];}
+		  System.out.println("Week 2" + weeekTwo);
+		     
+     for (innerLoopCheck < 5;)
+	     {innerLoopCheck++;
+	      weeekThree = weeekThree + arrayOfMoney [innerLoopCheck][2];}
+		  System.out.println("Week 3" + weeekThree);
+			    
+	 for (innerLoopCheck < 5;)
+	     {innerLoopCheck++;
+		  weeekFour = weeekFour + arrayOfMoney [innerLoopCheck][3];}
+	      System.out.println("Week 4" + weeekFour);
+	
+	
+	
+}} 
