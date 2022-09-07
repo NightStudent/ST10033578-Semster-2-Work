@@ -1,0 +1,53 @@
+//ST10033578
+import java.util.Scanner;
+public class GenerationSongs{  
+	
+		
+	
+public static void main(String args[])
+{  
+
+	//ICE Task two
+
+//	You need to create an application that suggests to a user a famous song from their generation, 
+//	based on when they were born. The users can either be {Boomers, GenX, Millenials, GenZ, GenA}.  You as
+//	the programmer are actually a millenial, so you need to tell the user whether they are born before, 
+	//after, or in the same time period as you.  
+
+//	The famous songs for each generation are: 
+
+//	Boomers - John Denver "Leaving On A Jet Plane"
+//	GenX - Don McLean "American Pie"
+	//Millenials - Rihanna "Umberella"
+	//GenZ - Louis Theroux "Jiggle Jiggle"
+//	GenA - Justin Bieber "Ghost"
+	
+	
+	//Declations
+	String BOB;
+	Scanner scan = new Scanner(System.in); //for user input
+	String inputStr;
+	int inputInt; 
+	
+System.out.println("select 1 if youy are lder than me, enetr 2 if you are younger than me and anything ifg we are the smae age.");
+   inputStr = scan.next();
+   inputInt = Integer.parseInt(inputStr); 
+   
+  	
+   if( inputInt == 1) {
+	   System.out.println("If you are a Boomner enter 1, if youy are Gen X enter anything else");
+	   inputStr = scan.next();
+	   inputInt = Integer.parseInt(inputStr); 
+	   if (inputInt == 1) {
+		   System.out.println("GenA - Justin Bieber Ghost");}
+	   else { System.out.println("Gen X -Don McLean American Pie");}}
+		else if (inputInt == 2) {
+			 System.out.println("If you are a Gen A enter 1, if you are Gen Z enter anything else");
+			   inputStr = scan.next();
+			   inputInt = Integer.parseInt(inputStr); 
+			    if (inputInt == 1) {System.out.println("Boomer - John Denver Leaving On A Jet Plane");}
+			    else { System.out.println("GenZ - Louis Theroux Jiggle Jiggle");}}
+		else {System.out.println("Millenials - Rihanna Umberella");}
+		
+   
+}} 
