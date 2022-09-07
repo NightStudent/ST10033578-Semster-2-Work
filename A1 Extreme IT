@@ -1,0 +1,194 @@
+// ST10033578
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import javax.swing.ButtonGroup;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
+//import java.io.*;
+
+public class ExtremeITProdcutsApp{  
+	
+public static void main(String args[])
+{  
+//Declarations.  
+    ArrayList<String> productWarrantyList = new ArrayList<>();
+    ArrayList<String> productCatergoryList = new ArrayList<>();
+    ArrayList<String> stockLevelList = new ArrayList<>();
+    ArrayList<String> productSupplierList = new ArrayList<>();
+    ArrayList<String> productDetailList = new ArrayList<>();
+    ArrayList<String> productNameList = new ArrayList<>();
+    ArrayList<String> productCodeList = new ArrayList<>();
+    ArrayList<String> productPriceList = new ArrayList<>();	
+    
+	//Control Panel Start
+	// Radio button is being used bc if there are too many if else statements make my brain hurts
+	JFrame controlPanel;  
+	controlPanel = new JFrame();
+	
+	JRadioButton option1 = new JRadioButton("1) Capture a new Product");
+	JRadioButton option2 = new JRadioButton("2) Search for a Product");
+	JRadioButton option3 = new JRadioButton("3) Update Product");
+	JRadioButton option4 = new JRadioButton("4) Delete Product");
+	JRadioButton option5 = new JRadioButton("5) Print Report");
+	JRadioButton option6 = new JRadioButton("6) Exit Application");
+
+	option1.setBounds(20,30,150,30);
+	option2.setBounds(20,70,150,30);
+	option3.setBounds(20,120,150,30);
+	option4.setBounds(20,150,150,30);
+	option5.setBounds(20,180,150,30);
+	option6.setBounds(20,210,150,30);
+
+	ButtonGroup controlButton = new ButtonGroup();
+	controlButton.add(option1);
+	controlButton.add(option2);
+	controlButton.add(option3);
+	controlPanel.add(option1);
+	controlPanel.add(option2);
+	controlPanel.add(option3);
+	controlPanel.add(option4);
+	controlPanel.add(option5);
+	controlPanel.add(option6);
+
+	controlPanel.setSize(250,500);
+	controlPanel.setLayout(null);
+	controlPanel.setVisible(true);
+
+ // My attempts to try to use methods instead of writing inside of the options 1 to 6 did not work.
+ // Please provide advice to help impliment into my code for the future.
+ // Issues i encountered was about transferring varibl;e and array infomation across, between and to methods
+	option1.addActionListener(new ActionListener()
+    { public void actionPerformed(ActionEvent e)
+    { 	
+    	// Varibles used to control loop.
+    	String   loopInputStr;
+    	int      loopInputInt;
+    	int      loopCount = 0;
+    	String input;
+    	String catergoryInputStr;
+    	int catergoryInputInt;
+    	// created catergory input varibles bc using input and inputInt broke my code.
+	    loopInputStr = JOptionPane.showInputDialog("How many times would you like to enter a produc?");
+        loopInputInt = Integer.parseInt(loopInputStr); 
+        
+      while (loopCount < loopInputInt )
+       { loopCount++;
+    	  
+      input = JOptionPane.showInputDialog("Enter Product Code");
+    productCodeList.add(input);
+      input = JOptionPane.showInputDialog("Enter Product Name");
+    productNameList.add(input);
+     // productWarrantyList[loopInputInt] = JOptionPane.showInputDialog("Select Product Warranty");
+         
+	catergoryInputStr = JOptionPane.showInputDialog("Enter 1 for Desktop Computer, 2 for Laptop, 3 for Tablet, 4 for Printer, 5 for Gayming Console");
+  catergoryInputInt = Integer.parseInt(catergoryInputStr); 
+if( catergoryInputInt == 1) {
+	productCatergoryList.add("Desktop Computer");}
+	else if (catergoryInputInt == 2) {
+		productCatergoryList.add("Desktop Computer");}
+	else if (catergoryInputInt == 3) {
+		productCatergoryList.add("Desktop Computer");}
+	else if(catergoryInputInt == 4) {
+		productCatergoryList.add("Desktop Computer");}
+	else if(catergoryInputInt == 5){
+		productCatergoryList.add("Desktop Computer");}
+	else {       JOptionPane.showMessageDialog(null,"Invalid entry try again");}
+
+     input = JOptionPane.showInputDialog("Enter 1 for a 6 month warranty and any other key for a 2 year waarrnty");
+if   (input == "1") {productWarrantyList.add("6 Monthes");}
+else {productWarrantyList.add("2 Years");}
+
+      input = JOptionPane.showInputDialog("Enter Product Price");
+      productPriceList.add(input);
+      input = JOptionPane.showInputDialog("Enter Stock Level");
+      stockLevelList.add(input);
+      input = JOptionPane.showInputDialog("Enter Product Suppkier");
+      productSupplierList.add(input);
+      input = JOptionPane.showInputDialog ("Enter Product Details");
+      productDetailList.add(input);
+      
+      JOptionPane.showMessageDialog(null,"Product Code: " + productCodeList);
+      JOptionPane.showMessageDialog(null,"Name: " + productNameList);
+      JOptionPane.showMessageDialog(null,"Product Catergory: " + productCatergoryList);
+      JOptionPane.showMessageDialog(null,"Product Warranty " + productWarrantyList);
+      JOptionPane.showMessageDialog(null,"Price: " + productPriceList);
+      JOptionPane.showMessageDialog(null,"Supplier: " + productSupplierList);
+      JOptionPane.showMessageDialog(null,"Stock Level: " + stockLevelList);
+      JOptionPane.showMessageDialog(null,"Details: " + productDetailList);
+
+      
+      JOptionPane.showMessageDialog(null,"Prodcu infomation has been sucessfully captured");}}});
+
+	
+    option2.addActionListener(new ActionListener()
+    { public void actionPerformed(ActionEvent e)
+    { 	
+       //search
+    	  String inputProductCode;
+    	  boolean found = false; // setting as false ensures that it can be set to true later. 
+    	  int indexSearch;
+          inputProductCode = JOptionPane.showInputDialog("Enter Prodcurt Code");
+
+         indexSearch =  productCodeList.indexOf(inputProductCode);
+        indexSearch = Collections.binarySearch(productCodeList, inputProductCode);
+        JOptionPane.showMessageDialog(null,"Product Details: " + productDetailList(indexSearch));
+ // I have no idea why it does not allow for the above line of code to work. 
+        
+        	//arrays.list().contains will help with the second half of the problem in deiteroimngn true or false. 
+         //.contains then if true search but if false then say product code not found
+      
+         
+     }}); 
+	
+  
+    option3.addActionListener(new ActionListener()
+    { public void actionPerformed(ActionEvent e)
+    { 
+    	
+    //arraylist.remove
+    
+    
+    //search
+    	String input;
+	  String inputProductCode;
+	  boolean found = false; // setting as false ensures that it can be set to true later. 
+	  int indexSearch;
+    inputProductCode = JOptionPane.showInputDialog("Enter Prodcurt Code of a product you eish to remove");
+
+    input = JOptionPane.showInputDialog("Enter 1 to confirm you wish to delete");
+ if (input == "1" )
+    
+ { indexSearch =  productCodeList.indexOf(inputProductCode);
+  indexSearch = Collections.binarySearch(productCodeList, inputProductCode);
+    
+  
+  productWarrantyList.remove(indexSearch);
+  productCatergoryList.remove(indexSearch);
+  stockLevelList.remove(indexSearch);
+  productSupplierList.remove(indexSearch);
+  productDetailList.remove(indexSearch);
+  productNameList.remove(indexSearch);
+  productCodeList.remove(indexSearch);
+  productPriceList.remove(indexSearch);}
+ 
+ else {
+     JOptionPane.showMessageDialog(null,"You have not deleted");}}}); 
+    
+    option4.addActionListener(new ActionListener()
+    { public void actionPerformed(ActionEvent e)
+    { JOptionPane.showMessageDialog(null, "Welcome to EasyKanban"); }}); 
+    
+    option5.addActionListener(new ActionListener()
+    { public void actionPerformed(ActionEvent e)
+    { JOptionPane.showMessageDialog(null, "Welcome to EasyKanban"); }}); 
+    
+    option6.addActionListener(new ActionListener()
+    { public void actionPerformed(ActionEvent e)
+    { controlPanel.dispose(); }}); 
+  	
+
+    }}
+    
